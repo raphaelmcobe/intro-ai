@@ -1,0 +1,567 @@
+---
+title: "Introduction to Artificial Intelligence"
+
+author: "Raphael Cobe"
+institute: "Advanced Institute for Artificial Intelligence"
+date: "June, 2019"
+output:
+  xaringan::moon_reader:
+    css: ["theme.css", "theme-fonts.css"]
+    lib_dir: libs
+    seal: false
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      
+    
+    
+---
+class: center, middle
+<img src="images/ai2_logo_256h-1.png" alt="drawing" style="width:15%;"/>
+
+# Introduction to Artificial Intelligence
+### Raphael Cobe
+### Advanced Institute for Artificial Intelligence
+### June, 2019
+
+---
+class: center, middle
+<img src="images/ai2_logo_full_128h-1.png" style="width:80%;"/>
+
+
+# http://advancedinstitute.ai
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+---
+class: center, middle, inverse
+# About me
+
+---
+class: middle
+# Sao Paulo State University - Unesp
+.pull-left[
+* Since 1976;
+* Most successful model of a multicampus university in Brazil;
+* Campuses: one in Sao Paulo and **23** others strategically distributed throughout the State;
+]
+
+.pull-right[
+```{r, out.width = "600px", fig.align="center", echo=FALSE}
+knitr::include_graphics("images/SP.png")
+```
+]
+
+---
+class: top
+# Sao Paulo Research and Analysis Center - SPRACE
+
+.pull-left[
+* Fundamental Research in High Energy Physics
+  + Physics analysis: Beyond SM and Heavy Ion Collisions
+  + Data processing and storage
+  + Scientific instrumentation
+* Innovation
+  + R&D on new technologies
+    + Partnership with the private sector
+* Outreach
+  + High school professors training
+]
+.pull-right[
+```{r, out.width = "600px", fig.align="center", echo=FALSE}
+knitr::include_graphics("images/sprace_partners.png")
+```
+]
+
+---
+class: center, bottom, inverse
+background-image: url(images/lhc.png)
+background-size: cover 
+
+---
+class: center, bottom
+background-image: url(images/sprace_resources.png)
+background-size: center 
+
+---
+class: center, bottom
+background-image: url(images/ai_investment.png)
+background-size: center 
+
+???
+* Why is it important to study AI?
+
+---
+class: center, bottom
+background-image: url(images/pwc.png)
+background-size: center 
+
+???
+* Why is it important to study AI?
+
+---
+class: center, bottom
+background-image: url(images/ai2.png)
+background-size: center 
+
+???
+* Why is it important to study AI?
+
+---
+class: center, middle, inverse
+
+# Artificial Intelligence
+
+---
+class: middle
+#What is AI? 
+* Making computers that think?
+* The automation of activities we associate with human thinking, like decision making, learning ... ?
+* The art of creating machines that perform functions that require intelligence when performed by people ?
+* The study of mental faculties through the use of computational models ?
+* **Anything in Computing Science that we don't yet know how to do properly ? (!)**
+
+---
+class: center, bottom, inverse
+background-image: url(images/hal9000.jpg)
+background-size: cover 
+
+--
+# Meet HAL 9000
+
+---
+class: top
+## 2001: A Space Odyssey
+  * Classic science fiction movie from **1969**;
+  * Part of the story centers around an intelligent computer called HAL
+.red[HAL] - .red[**H**]euristically programmed .red[**AL**]gorithmic computer  
+  * HAL is the “brains” of an intelligent spaceship
+  * in the movie, HAL can
+    + speak easily with the crew
+    + see and understand the emotions of the crew
+    + navigate the ship automatically
+    + diagnose on-board problems
+    + make life-and-death decisions
+    + display emotions
+    
+**In 1969 this was science fiction: is it still science fiction?**
+
+???
+* HAL is the imidiate letters after IBM;
+
+---
+class: center
+
+# speak easily with the crew
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/78-1MlkxyqI?controls=1&amp;start=2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: center
+
+# see and understand the emotions of the crew
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/qJqTjvGGjAs?controls=1&start=78" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: center
+
+# navigate the ship automatically
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/IMSozUpFFkU?controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: center
+
+# diagnose on-board problems
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/2VfL6Z7LFE8?controls=1&start=55" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: center
+
+# make life-and-death decisions
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/beVWB6NtAaA?controls=1&start=10" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: center
+
+# display emotions
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/LoJTjeS7Nys?controls=1&start=10" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: center, middle, inverse
+
+#In 1969 this was science fiction: is it still science fiction?
+
+---
+class: top
+# Can we build hardware as complex as the brain?
+## How complicated is our brain?
+* a neuron, or nerve cell, is the basic information processing unit
+* estimated to be on the order of $10^{12}$ neurons in a human brain
+* many more synapses ( $10^{14}$ ) connecting these neurons
+* cycle time: $10^{-3}$ seconds (1 millisecond)
+
+---
+class: top
+# Can we build hardware as complex as the brain?
+## How complex can we make computers?
+* ~ 730k transistors per CPU 
+* supercomputer: millions of CPUs, $10^7$ GB of RAM 
+* cycle times: order of $10^{-9}$ seconds
+
+---
+class: top
+# Can we build hardware as complex as the brain?
+## Conclusion
+* .red[YES]: we can have computers with as many basic processing elements as our brain;
+* far fewer interconnections (wires or synapses) than the brain
+* much faster updates than the brain
+* **but building hardware is very different from making a computer behave like a brain!**
+
+---
+class: top
+# Must an Intelligent System be Foolproof?
+* A “foolproof” system is one that never makes an error:
+  + Types of possible computer errors
+    + hardware errors, e.g., memory errors
+    + software errors, e.g., coding bugs
+    + “human-like” errors
+  + Clearly, hardware and software errors are possible in practice
+  + what about “human-like” errors?
+
+---
+class: top
+# Must an Intelligent System be Foolproof?
+## An intelligent system can make errors and still be intelligent
+* humans are not right all of the time
+* we learn and adapt from making mistakes
+  + e.g., consider learning to surf or ski
+    + we improve by taking risks and falling
+    + an intelligent system can learn in the same way
+
+## Conclusion:
+.red[NO]: **intelligent systems will not (and need not) be foolproof**
+
+
+---
+class: middle
+
+# What is AI? 
+```{r, out.width = "600px", fig.align="center", echo=FALSE}
+knitr::include_graphics("images/AI_defs.png")
+```
+
+???
+* Modeling exactly how humans actually think 
+  + cognitive models of human reasoning 
+* Modeling exactly how humans actually act
+  + models of human behavior (what they do, not how they think)
+* Modeling how ideal agents “should think”
+  + models of “rational” thought (formal logic)
+  + note: humans are often not rational!
+* Modeling how ideal agents “should act” 
+  + rational actions but not necessarily formal rational reasoning
+  + i.e., more of a black-box/engineering approach
+* Modern AI focuses on the last definition
+  + modern methods are inspired by cognitive & neuroscience (how people think). 
+
+
+---
+class: middle
+# A little bit of history
+* Philosophy
+* Mathematics
+* Economics
+* Neuroscience
+* Psychology
+
+**John McCarthy- coined the term- 1950’s**
+
+---
+class: middle
+# A little bit of history
+## Philosophy
+* Dealt with questions like: 
+  + Can formal rules be used to draw valid conclusions?
+  + Where does knowledge come from? How does it lead to action?
+* Aristotle
+  + Given the end to achieve
+  + Consider by what means to achieve it
+  + Consider how the above will be achieved …till you reach the first cause
+  + Last in the order of analysis = First in the order of action
+  + If you reach an impossibility, abandon search
+
+---
+class: middle
+# A little bit of history
+## Mathematics
+* Boolean Logic(mid 1800’s)
+* Intractability (1960’s)
+  + Polynomial Vs Exponential growth
+  + Intelligent behaviour = tractable subproblems, not large intractable problems.
+* Probability
+  + Gerolamo Cardano(1500’s) - probability in terms of outcomes of gambling events
+
+---
+class: middle
+# A little bit of history
+## Economics
+* How do we make decisions so as to maximize payoff?
+* How do we do this when the payoff may be far in the future?
+* Game Theory (mid 1900’s)
+
+---
+class: middle
+# A little bit of history
+## Neuroscience
+* Study of the nervous system, esp. brain
+* A collection of simple cells can lead to thought and action
+* Cycle time: 
+  + Human brain - microseconds
+  + Computers - nanoseconds
+* The brain is still 100,000 times faster
+
+---
+class: middle
+# A little bit of history
+## Psychology
+* Behaviourism:
+  + stimulus leads to response
+* Cognitive science
+  + Computer models can be used to understand the psychology of memory, language and thinking
+  + The brain is now thought of in terms of computer science constructs like I/O units, and processing center
+
+
+---
+class: middle
+
+# Machines that think like humans 
+* Determine **how** humans think;
+* Get inside the actual workings of human minds;
+    + **Introspection** - catch our own thoughts as they go by;
+    + **Psychological experiments**;
+* Sufficiently precise theory of the mind:
+    + Express the theory as a computer program;
+
+---
+class: middle    
+# Machines that think like humans 
+
+> If the program's input/output and timing behavior matches human behavior, that is evidence that some of the program's mechanisms may also be operating in humans;
+
+---
+class: middle
+# Machines that think like humans 
+
+* How do we know how humans think?
+* **Program correctly solving problems is not enough!**
+    + Comparing the trace of its reasoning steps to traces of human subjects solving the same problems;
+* **Cognitive science**: computer models from AI and experimental techniques from psychology 
+    + Precise and testable theories of the workings of the human mind;
+    + Vision, natural language, and learning;
+
+---
+class: middle
+# Machines that think like humans
+
+> The exciting new effort to make computers think ... machines with minds, in the full and literal sense. (Haugeland, 1985)
+
+> The automation of activities that we associate with human thinking, activities such as decision-making, problem solving, learning ... (Bellman, 1978)
+
+
+---
+class: middle
+
+# Machines that act like humans 
+* **Intelligent behavior** as the ability to achieve **human-level performance** in all cognitive tasks, **sufficient to fool an interrogator**.
+
+---
+class: middle
+# The Turing Test 
+```{r, out.width = "400px", fig.align="center", echo=FALSE}
+knitr::include_graphics("images/turing-test.jpg")
+```
+ 
+---
+class: middle
+
+# The Turing Test 
+* Uses the "Imitation Game"
+* Usual method:
+    + Three people play (man, woman, and interrogator)
+    + Interrogator determines which of the other two is a woman by asking questions
+        + Example: How long is your hair?
+    + Typewritten or repeated by an intermediary
+
+---
+class: middle
+# The Turing Test 
+* Requires success in:
+    + Natural language processing: **communicate** with the interrogator;
+    + Knowledge representation: store and retrieve **what it knows**;
+    + Automated reasoning: use the stored information to answer questions and to **draw new conclusions**;
+    + Machine learning: **adapt to new circumstances** and to detect and extrapolate patterns
+
+---
+class: middle
+# The Turing Test
+* Not a big effort to try to pass the Turing test;
+* Acting like a human: 
+    + When AI programs have to interact with people
+    + e.g. when an expert system explains how it came to its diagnosis;
+    + e.g. natural language processing system has a dialogue with a user. 
+* When programs must behave according to certain normal conventions of human interaction?
+* Underlying representation and reasoning **may or may not be based on a human model**.
+
+---
+class: middle
+#Machines that act like humans 
+
+>The art of creating machines that perform functions that require intelligence when performed by people. (Kurzweil)
+
+>The study of how to make computers do things at which, at the moment, people are better. (Rich and Knight)
+
+
+---
+class: middle
+# Machines that think rationally
+* Aristotle was one of the first to attempt to codify **right thinking**
+    + Irrefutable reasoning processes;
+    + **Syllogisms**: patterns for argument structures: always gave correct conclusions given correct premises;
+    + Laws of thought supposed to govern the operation of the mind
+* Formal logic provide a precise notation for statements about all kinds of things in the world and the relations between them;
+
+---
+class: middle
+# Machines that think rationally
+
+* Humans are not always rational.
+    + Big difference between being able to solve a problem and doing so;
+* Rational - defined in terms of logic?
+* Logic can't express everything: informal knowledge, knowledge is less than 100% certain;
+* Logical approach is often not feasible in terms of computation time (needs *guidance*)
+
+---
+class: middle
+# Machines that think rationally 
+>The study of mental faculties through the use of computational models. (Charniak and McDermott, 1985)
+
+>The study of the computations that make it possible to perceive, reason, and act. (Winston, 1992)
+
+---
+class: middle
+# Machines that act rationally 
+* Rational behavior: doing the right thing;
+* The right thing: that which is expected to maximize goal achievement, given the available information;
+* Correct inference is not all of rationality:
+    + Situations where there is no provably correct thing to do, yet something must still be done;
+    + Ways of acting rationally that cannot be reasonably said to involve inference:
+        + pulling one's hand off of a hot stove is a **reflex** action that is more successful than a slower action taken after careful deliberation;
+
+---
+class: middle        
+# Machines that act rationally 
+
+> A field of study that seeks to explain and emulate intelligent behavior in terms of computational processes. (Schalkoff, 1990)
+
+> The branch of computer science that is concerned with the automation of intelligent behavior. (Luger and Stubblefield, 1993)
+
+---
+class: middle
+# Inside *AI*
+* Many related areas;
+
+```{r, out.width = "600px", fig.align="center", echo=FALSE}
+knitr::include_graphics("images/AI_Areas.png")
+```
+
+---
+class: middle
+# What is inside A.I.? 
+
+* Search (includes Game Playing).
+* Representing Knowledge and Reasoning with it.
+* Planning;
+* **Learning**;
+* Natural language processing.
+* Interacting with the Environment (e.g. Vision, Speech recognition, Robotics)
+
+---
+class: middle, inverted
+# Machine Learning
+
+---
+class: middle
+# Types of Learning
+* Supervised (inductive) learning
+    * Training data includes desired outputs
+* Unsupervised learning
+    * Training data does not include desired outputs
+* Semi-supervised learning
+    * Training data includes a few desired outputs
+* Reinforcement learning
+    * Rewards from sequence of actions
+
+---
+class: middle
+# Supervised Learning
+
+* Prediction of future cases: Use the rule to predict the output for future inputs
+* Knowledge extraction: The rule is easy to understand
+* Compression: The rule is simpler than the data it explains
+* Outlier detection: Exceptions that are not covered by the rule, e.g., fraud
+
+---
+class: middle
+# Unsupervised Learning
+
+* Learning *what normally happens*
+* No output
+* Clustering: Grouping similar instances
+* Other applications: Summarization, Association Analysis
+
+---
+class: center, middle
+# Impressive Machine Learning Projects
+## Google DeepMind AI learning to "walk"
+<iframe width="650" height="415" src="https://www.youtube.com/embed/gn4nRCC9TwQ?controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: center, middle
+# Impressive Machine Learning Projects
+## Nvidia AI creating faces
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/bIVU8UuHPKI?controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+---
+class: center, middle
+# Impressive Machine Learning Projects
+## Nvidia AI creating artificial landscapes
+
+<iframe width="650" height="415" src="https://www.youtube.com/embed/p5U4NgVGAwgI?controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: middle
+# The Exercises
+* We will use R language for implementing the examples of this course.
+* In the lab session we will follow the [Software Carpentry Introduction to R resources](https://swcarpentry.github.io/r-novice-gapminder/);
+
+
+
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
